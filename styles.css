@@ -213,6 +213,15 @@ code {
 }
 .byline a {
   color: black;
+  text-decoration-color: rgb(97, 34, 251);
+}
+
+a {
+  color: black;
+  text-decoration-color: rgb(97, 34, 251);
+}
+a:hover {
+  color: rgb(97, 34, 251);
 }
 
 .group-vis {
