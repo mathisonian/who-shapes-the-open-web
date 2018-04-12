@@ -791,9 +791,10 @@ hr {
 
 .member {
   display: inline-block;
-  padding: 10px;
-  color: black;
-  border: solid 3px black;
+  padding: 5px;
+  color: #333;
+  font-size: 14px;
+  border: solid 3px #333;
   background: white;
   margin: 5px 10px 5px 0;
   cursor: pointer;
@@ -805,7 +806,7 @@ hr {
 
 .member.selected {
   color: white;
-  background: black;
+  background: #333;
 }
 
 .member-select {
@@ -826,4 +827,31 @@ hr {
   font-size: 1.5em;
   /* text-align: center; */
   font-weight: normal;
+}
+
+.group-vis {
+  margin: 0 auto;
+  max-width: 800px;
+  /* display: flex; */
+  /* justify-items: center;
+  align-content: center; */
+  /* text-align: center; */
+}
+
+.aside {
+  right: 0;
+  font-style: italic;
+}
+
+.group-item {
+  border-radius: 5px;
+  background: #fefefe;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  border: solid 1px black;
+}
+
+.controls {
+  background: #eee;
+  padding: 1px 20px 80px 20px;
+  margin: 20px 0;
 }
