@@ -830,7 +830,7 @@ hr {
 }
 
 .group-vis {
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
   max-width: 800px;
   /* display: flex; */
   /* justify-items: center;
