@@ -1,0 +1,78 @@
+
+
+[meta title:"Who Shapes The Open Web"
+  description:"A look at the membersip breakdown of W3C working groups."
+  shareImageUrl:"https://mathisonian.github.io/who-shapes-the-open-web/images/share.png"
+  shareImageWidth:"902"
+  shareImageHeight:"608" /]
+
+
+[data name:"members" source:"w3c-members.json" /]
+[data name:"workingGroups" source:"w3c-working-groups.json" /]
+
+
+[Header
+  title:"Who Shapes the Open Web?"
+  subtitle:"A look at the membersip breakdown of W3C working groups."
+  author:"Matthew Conlen"
+  authorLink:"https://mathisonian.com" /]
+
+
+[var name:"memberThreshold" value:50 /]
+[var name:"selected" value:`"Google, Inc." ` /]
+[var name:"filterVal" value:"" /]
+[var name:"normalize" value:false /]
+
+[var name:"searchFilter" value:'' /]
+
+Given how much tech and privacy policy have been appearing in the headlines recently,
+I was curious to know more about the groups that actually guide these technologies
+that impact millions of peoples' lives.  The World Wide Web Consortium — *W3C* for short — is one of these groups, responsible for codifying a set of standards for the web.
+Along with ECMA International, a standards body to created to oversee the development of JavaScript (ECMAScript is the ES in [ES6](http://es6-features.org/#Constants)), the proposals made by the W3C are
+standardized and adopted by browsers.
+
+The W3C is split up into working groups, which consist of invited experts and representatives from member organizations. There are [display value:`members.length` /] organizations with members across [display value:`workingGroups.length` /] working groups. Most of the organizations are private companies, but there are some universities and non-profits as well.
+
+Not surprisingly, the most well-represented organizations are browser manufactorers like Google, Microsoft, Apple, Mozilla, Baidu, and Alibaba. Other tech giants like Adobe, IBM, and Intel are represented too. To help better understand what these companies are most interested in, I built a small interactive tool to browse organizations and see what groups their representatives are working with.
+
+[hr/]
+
+*Click on the name of an organization to see its membership breakdown, and use the control panel to refine your search and see more or fewer organizations. Scroll down for methodology.*
+
+
+[div className:"controls"]
+
+  ## Member Search
+
+  [Conditional if:`filterVal === ''`]
+    Showing companies who have more than [Dynamic min:0 value:memberThreshold /] members.
+  [/Conditional]
+
+  [float position:"left"]
+    Search [TextInput placeholder:"" value:filterVal /]
+  [/float]
+  [float position:"right"]
+   Normalize by group size? [Boolean value:normalize /]
+  [/float]
+[/div]
+
+[MemberSelect
+  fullWidth:true data:`members.filter((m) => {
+  if (filterVal) {
+    return m.name.toLowerCase().indexOf(filterVal.toLowerCase()) > -1;
+  }
+  return m.value > memberThreshold;
+})` selected:selected /]
+
+
+[GroupVis normalize:normalize fullWidth:true data:workingGroups selected:selected /]
+
+
+### Methodology
+
+This data was obtained from the [W3C website](https://www.w3.org/2004/01/pp-impl/) in April 2018. Some organizations were listed as being members of a group but having no current representatives, in this case they were given a value of 0.5 representatives.
+
+### Links
+
+* This article was created with [Idyll](https://idyll-lang.org), a markup language for interactive articles.
+* The data is available for download [here](https://github.com/mathisonian/who-shapes-the-open-web).

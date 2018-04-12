@@ -1,0 +1,22 @@
+{
+  "name": "who-shapes-the-web",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "idyll index.idyll --no-sr=true --defaultComponents=components/default --css styles.css --theme github --layout centered --watch",
+    "build": "idyll index.idyll --defaultComponents=components/default --theme github --layout centered --css styles.css; cp -r {images,fonts} build/;",
+    "deploy": "npm run build && gh-pages -d ./build"
+  },
+  "dependencies": {
+    "d3": "^4.0.0",
+    "idyll": "^2.0.0",
+    "idyll-d3-component": "^2.0.0",
+    "react-masonry-component": "^6.0.2",
+    "react-spring": "^4.0.1"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "gh-pages": "^0.12.0",
+    "puppeteer": "^1.2.0"
+  }
+}
